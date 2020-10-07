@@ -12,7 +12,7 @@ struct LaunchDarklyClientReferenceEnvironmentKey: EnvironmentKey {
     static let defaultValue: LDClient = LDClient.get()!
 }
 
-extension EnvironmentValues {
+public extension EnvironmentValues {
     var launchDarklyClient: LDClient {
         get {
             return self[LaunchDarklyClientReferenceEnvironmentKey]
