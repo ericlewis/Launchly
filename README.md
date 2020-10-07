@@ -1,7 +1,3 @@
-# Launchly
-
-LaunchDarkly with SwiftUI!
-
 ## Example
 
 This is an entire SwiftUI application utiliziting Launchly with default settings.
