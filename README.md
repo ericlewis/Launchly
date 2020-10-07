@@ -18,10 +18,16 @@ struct Flags {
 }
 
 struct ContentView: View {
+    @Environment(\.launchDarklyClient) var client
     @ObservedVariation(Flags.test, defaultValue: false) var flag
+    
+    private func trackView() {
+        try? client.track(key: "Viewed")
+    }
     
     var body: some View {
         Text(flag == true ? "true" : "false")
+            .onAppear(perform: trackView)
     }
 }
 
