@@ -7,9 +7,7 @@ import SwiftUI
 import Launchly
 import LaunchDarkly
 
-struct Constants {
-    static let launchDarklyKey = "#YOUR_MOBILE_KEY#"
-}
+let launchDarklyKey = "#YOUR_MOBILE_KEY#"
 
 struct Flags {
     static let test = "test"
@@ -26,7 +24,7 @@ struct ContentView: View {
 @main
 struct LaunchlyApp: App {
     init() {
-        LDClient.start(config: LDConfig(mobileKey: Constants.launchDarklyKey))
+        LDClient.start(config: LDConfig(mobileKey: launchDarklyKey))
     }
     
     var body: some Scene {
