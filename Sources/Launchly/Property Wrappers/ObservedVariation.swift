@@ -19,7 +19,7 @@ public struct ObservedVariation<T: LDFlagValueConvertible>: DynamicProperty {
         observer.flag ?? defaultValue
     }
     
-    public init(_ key: String, defaultValue: T, client: LDClient? = nil) {
+    public init(_ key: LDFlagKey, defaultValue: T, client: LDClient? = nil) {
         self.defaultValue = defaultValue
         self.observer = ObservableVariation(key)
         self.observer.observe(client: client ?? defaultClient)

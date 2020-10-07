@@ -11,10 +11,10 @@ import LaunchDarkly
 final class ObservableVariation<T: LDFlagValueConvertible>: ObservableObject {
     @Published var flag: T?
     
-    let key: String
+    let key: LDFlagKey
     var client: LDClient?
 
-    init(_ key: String) {
+    init(_ key: LDFlagKey) {
         self.key = key
     }
     
