@@ -45,7 +45,7 @@ struct LaunchlyApp: App {
 - Contains the code for injecting a given `LDClient` into Environment.
 
 ## Models
-- Contains the code that interacts with the `LDClient`, uses an `ObservedObject` paradigm
+- Contains the code that interacts with the `LDClient`.
 
 ## Property Wrappers
 - The property wrappers to be used within the SwiftUI code
