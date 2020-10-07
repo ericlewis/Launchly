@@ -28,7 +28,7 @@ struct ContentView: View {
 }
 
 @main
-struct LaunchDarklySwiftUIApp: App {
+struct LaunchlyApp: App {
     init() {
         LDClient.start(config: LDConfig(mobileKey: Constants.launchDarklyKey))
     }
