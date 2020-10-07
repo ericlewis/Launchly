@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 import LaunchDarkly
 
 final class ObservableVariation<T: LDFlagValueConvertible>: ObservableObject {
@@ -13,6 +14,7 @@ final class ObservableVariation<T: LDFlagValueConvertible>: ObservableObject {
     
     let key: LDFlagKey
     var client: LDClient?
+    var cancellable: AnyCancellable?
 
     init(_ key: LDFlagKey) {
         self.key = key
@@ -21,17 +23,15 @@ final class ObservableVariation<T: LDFlagValueConvertible>: ObservableObject {
     func observe(client: LDClient) {
         self.client = client
         
-        // shoot off an inital request probably based on cache
-        flag = self.client?.variation(forKey: key)
+        // shoot off an inital request probably based on cache (might not be needed)
+        // flag = self.client?.variation(forKey: key)
         
-        // spin up observer if we aren't aren't interested in observing (this make the class name annoying)
-        self.client?.observe(key: key, owner: key as LDObserverOwner) { [weak self] in
-            self?.flag = $0.newValue as? T
+        cancellable = self.client?.observePublisher(forKey: key).sink { [weak self] in
+            self?.flag = $0
         }
     }
     
     deinit {
-        // this class will get tossed when recreating the propertyWrapper, so lets kill our observation
-        client?.stopObserving(owner: key as LDObserverOwner)
+        cancellable?.cancel()
     }
 }

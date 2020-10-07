@@ -2,8 +2,9 @@
 
 An easy to use [LaunchDarkly](https://launchdarkly.com) framework for SwiftUI. Supports iOS 13+, macOS 10.15+, watchOS 6+, tvOS 13+.
 
-# Example
+# Examples
 
+## SwiftUI
 Below is an entire SwiftUI application utilizing Launchly with default settings, or you can check out a working project [here](https://github.com/ericlewis/LaunchDarklySwiftUI).
 
 ```swift
@@ -43,10 +44,13 @@ struct LaunchlyApp: App {
 }
 ```
 
+## Combine
+TODO
+
 # Project Structure
 
 ## Extensions
-- Contains the code for injecting a given `LDClient` into Environment.
+- Contains the code for injecting a given `LDClient` into Environment & Combine Publishers.
 
 ## Models
 - Contains the code that interacts with the `LDClient`, backing up the Property Wrappers.
