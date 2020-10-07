@@ -8,8 +8,8 @@
 import SwiftUI
 import LaunchDarkly
 
-final class ObservableVariation: ObservableObject {
-    @Published var isEnabled: Bool?
+final class ObservableVariation<T: LDFlagValueConvertible>: ObservableObject {
+    @Published var flag: T?
     
     let key: String
     var client: LDClient?
@@ -22,11 +22,11 @@ final class ObservableVariation: ObservableObject {
         self.client = client
         
         // shoot off an inital request probably based on cache
-        isEnabled = self.client?.variation(forKey: key)
+        flag = self.client?.variation(forKey: key)
         
         // spin up observer if we aren't aren't interested in observing (this make the class name annoying)
         self.client?.observe(key: key, owner: key as LDObserverOwner) { [weak self] in
-            self?.isEnabled = $0.newValue as? Bool
+            self?.flag = $0.newValue as? T
         }
     }
     

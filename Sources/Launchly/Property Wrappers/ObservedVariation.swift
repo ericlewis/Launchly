@@ -9,17 +9,17 @@ import SwiftUI
 import LaunchDarkly
 
 @propertyWrapper
-public struct ObservedVariation: DynamicProperty {
+public struct ObservedVariation<T: LDFlagValueConvertible>: DynamicProperty {
     @Environment(\.launchDarklyClient) var client
-    @ObservedObject var observer: ObservableVariation
+    @ObservedObject var observer: ObservableVariation<T>
     
-    let defaultValue: Bool
+    let defaultValue: T
     
-    public var wrappedValue: Bool {
-        observer.isEnabled ?? defaultValue
+    public var wrappedValue: T {
+        observer.flag ?? defaultValue
     }
     
-    public init(_ key: String, defaultValue: Bool) {
+    public init(_ key: String, defaultValue: T) {
         self.defaultValue = defaultValue
         self.observer = ObservableVariation(key)
         self.observer.observe(client: client)
