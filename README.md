@@ -1,6 +1,6 @@
 # Example
 
-This is an entire SwiftUI application utiliziting Launchly with default settings.
+This is an entire SwiftUI application utilizing Launchly with default settings.
 
 ```swift
 import SwiftUI
