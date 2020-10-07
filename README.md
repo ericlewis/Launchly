@@ -1,6 +1,6 @@
 # Launchly
 
-An easy to use [LaunchDarkly](https://launchdarkly.com) framework for SwiftUI. Supports iOS 13+, macOS 10.15+, watchOS 6+, tvOS 13+.
+An easy to use [LaunchDarkly](https://launchdarkly.com) framework that adds support for SwiftUI & Combine. Supports iOS 13+, macOS 10.15+, watchOS 6+, tvOS 13+.
 
 # Examples
 
@@ -45,7 +45,15 @@ struct LaunchlyApp: App {
 ```
 
 ## Combine
-TODO
+The Property Wrappers are built on underlying Combine extensions to `LDClient`. These are also exposed for usage if you would like to work with UIKit. 
+
+```swift
+var cancellable: AnyCancellable?
+cancellable = client.variationPublisher(forKey: key)
+    .sink { [weak self] in
+        print($0)
+    }
+```
 
 # Project Structure
 
