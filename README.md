@@ -45,11 +45,15 @@ struct LaunchlyApp: App {
 ```
 
 ## Combine
-The Property Wrappers are built on underlying Combine extensions to `LDClient`. These are also exposed for usage if you would like to work with UIKit. 
+The Property Wrappers are built on underlying Combine extensions to `LDClient`. 
 
 ```swift
+import Combine
+import Launchly
+import LaunchDarkly
+
 var cancellable: AnyCancellable?
-cancellable = client.variationPublisher(forKey: key)
+cancellable = LDClient.get()!.variationPublisher(forKey: key)
     .sink { [weak self] in
         print($0)
     }
