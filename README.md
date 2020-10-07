@@ -1,3 +1,7 @@
+# Launchly
+
+An easy to use [LaunchDarkly](https://launchdarkly.com) framework for SwiftUI.
+
 # Example
 
 This is an entire SwiftUI application utilizing Launchly with default settings.
