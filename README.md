@@ -49,7 +49,8 @@ struct LaunchlyApp: App {
 
 ## Property Wrappers
 - The property wrappers to be used within the SwiftUI code
-    - @ObservedFlag: this listens to variations that will react depending on the `LDClient` configuration injected via `environment`
+    - @ObservedFlag: monitor variations that will react depending on the `LDClient` configuration injected via `environment`.
+    - @ObservedStatus: monitor the LaunchDarkly SDK connection status. 
     
 # License
 MIT
