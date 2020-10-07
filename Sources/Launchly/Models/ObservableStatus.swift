@@ -6,23 +6,22 @@
 //
 
 import SwiftUI
+import Combine
 import LaunchDarkly
 
 final class ObservableStatus: ObservableObject {
     @Published var status: ConnectionInformation.ConnectionMode?
     
-    let owner = "ConnectionMode" as LDObserverOwner
-    var client: LDClient?
-
+    var cancellable: AnyCancellable?
+    
     func observe(client: LDClient) {
-        self.client = client
-
-        self.client?.observeCurrentConnectionMode(owner: owner) { [weak self] in
-            self?.status = $0
-        }
+        cancellable = client.currentConnectionModePublisher()
+            .sink { [weak self] in
+                self?.status = $0
+            }
     }
     
     deinit {
-        client?.stopObserving(owner: owner)
+        cancellable?.cancel()
     }
 }
