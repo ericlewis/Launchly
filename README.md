@@ -4,7 +4,7 @@ An easy to use [LaunchDarkly](https://launchdarkly.com) framework for SwiftUI. S
 
 # Example
 
-This is an entire SwiftUI application utilizing Launchly with default settings.
+Below is an entire SwiftUI application utilizing Launchly with default settings, or you can check out a working project [here](https://github.com/ericlewis/LaunchDarklySwiftUI).
 
 ```swift
 import SwiftUI
