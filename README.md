@@ -52,6 +52,8 @@ import Combine
 import Launchly
 import LaunchDarkly
 
+LDClient.start(config: LDConfig(mobileKey: "#YOUR_MOBILE_KEY#"))
+
 var cancellable: AnyCancellable?
 cancellable = LDClient.get()!.variationPublisher(forKey: key)
     .sink {
