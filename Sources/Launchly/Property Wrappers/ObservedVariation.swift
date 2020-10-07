@@ -10,8 +10,8 @@ import LaunchDarkly
 
 @propertyWrapper
 public struct ObservedVariation<T: LDFlagValueConvertible>: DynamicProperty {
-    @Environment(\.launchDarklyClient) var defaultClient
-    @ObservedObject var observer: ObservableVariation<T>
+    @Environment(\.launchDarklyClient) private var defaultClient
+    @ObservedObject private var observer: ObservableVariation<T>
     
     let defaultValue: T
     

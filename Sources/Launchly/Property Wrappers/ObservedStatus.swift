@@ -10,8 +10,8 @@ import LaunchDarkly
 
 @propertyWrapper
 public struct ObservedStatus: DynamicProperty {
-    @Environment(\.launchDarklyClient) var defaultClient
-    @ObservedObject var observer: ObservableStatus
+    @Environment(\.launchDarklyClient) private var defaultClient
+    @ObservedObject private var observer: ObservableStatus
         
     public var wrappedValue: ConnectionInformation.ConnectionMode? {
         observer.status
