@@ -1,4 +1,4 @@
-## Example
+# Example
 
 This is an entire SwiftUI application utiliziting Launchly with default settings.
 
@@ -37,14 +37,17 @@ struct LaunchlyApp: App {
 }
 ```
 
-## Project Structure
+# Project Structure
 
-### Extensions
+## Extensions
 - Contains the code for injecting a given `LDClient` into a given subtree 
 
-### Models
+## Models
 - Contains the code that interacts with the `LDClient`, uses an `ObservedObject` paradigm
 
-### Property Wrappers
+## Property Wrappers
 - The property wrappers to be used within the SwiftUI code
     - @ObservedFlag: this listens to a boolean based variation that will react depending on the `LDClient` configuration injected via `environment`
+    
+# License
+MIT
