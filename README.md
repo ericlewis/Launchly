@@ -1,6 +1,6 @@
 # Launchly
 
-An easy to use [LaunchDarkly](https://launchdarkly.com) framework for SwiftUI. Supports iOS 13+, macOS 10.15+, watchOS 6+.
+An easy to use [LaunchDarkly](https://launchdarkly.com) framework for SwiftUI. Supports iOS 13+, macOS 10.15+, watchOS 6+, tvOS 13+.
 
 # Example
 
