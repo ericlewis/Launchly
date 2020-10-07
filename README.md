@@ -54,7 +54,7 @@ import LaunchDarkly
 
 var cancellable: AnyCancellable?
 cancellable = LDClient.get()!.variationPublisher(forKey: key)
-    .sink { [weak self] in
+    .sink {
         print($0)
     }
 ```
