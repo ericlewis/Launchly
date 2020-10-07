@@ -42,7 +42,7 @@ struct LaunchlyApp: App {
 # Project Structure
 
 ## Extensions
-- Contains the code for injecting a given `LDClient` into a given subtree 
+- Contains the code for injecting a given `LDClient` into Environment.
 
 ## Models
 - Contains the code that interacts with the `LDClient`, uses an `ObservedObject` paradigm
